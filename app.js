@@ -1,3 +1,20 @@
+// --- 5. GÖREV: GİDER ÖZETİ VE GENEL İSTATİSTİKLER ---
+const toplamHayvanEl = document.getElementById("toplamHayvanSayisi");
+const toplamYemMiktarEl = document.getElementById("toplamYemMiktari");
+const toplamYemMaliyetEl = document.getElementById("toplamYemMaliyeti");
+
+function ozetGuncelle() {
+  const hayvanlar = JSON.parse(localStorage.getItem("hayvanlar")) || [];
+  const yemler = JSON.parse(localStorage.getItem("yemKayitlari")) || [];
+
+  const toplamMiktar = yemler.reduce((toplam, yem) => toplam + Number(yem.miktar), 0);
+  const toplamMaliyet = yemler.reduce((toplam, yem) => toplam + Number(yem.tutar), 0);
+
+  toplamHayvanEl.textContent = hayvanlar.length;
+  toplamYemMiktarEl.textContent = `${toplamMiktar.toLocaleString("tr-TR")} kg`;
+  toplamYemMaliyetEl.textContent = `${toplamMaliyet.toLocaleString("tr-TR")} TL`;
+}
+
 // --- 1., 2. ve 4. GÖREV: HAYVAN KAYIT, LİSTELEME VE SİLME ---
 const hayvanForm = document.getElementById("hayvanForm");
 const mesajKutusu = document.getElementById("mesaj");
@@ -23,6 +40,7 @@ function hayvanSil(id, kupeNo) {
 
   mesajGoster(`"${kupeNo}" küpe numaralı hayvan kaydı listeden silindi.`, true);
   hayvanlariListele();
+  ozetGuncelle();
 }
 
 function hayvanlariListele() {
@@ -81,6 +99,7 @@ hayvanForm.addEventListener("submit", function (e) {
   mesajGoster(`"${kupeNo}" numaralı ${tur} başarıyla kaydedildi!`);
   hayvanForm.reset();
   hayvanlariListele();
+  ozetGuncelle();
 });
 
 // --- 3. GÖREV: GÜNLÜK YEM TÜKETİMİ GİRİŞİ ---
@@ -142,8 +161,10 @@ yemForm.addEventListener("submit", function (e) {
 
   yemForm.reset();
   yemleriListele();
+  ozetGuncelle();
 });
 
-// Sayfa açıldığında mevcut verileri yükle
+// Sayfa açıldığında mevcut verileri ve özetleri yükle
 hayvanlariListele();
 yemleriListele();
+ozetGuncelle();
