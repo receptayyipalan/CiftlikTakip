@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Çiftlik Takip Sistemi</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Çiftlik Takip Sistemi</h1>
+    <p class="subtitle">Yeni Hayvan Kayıt Ekranı</p>
+
+    <form id="hayvanForm">
+      <div class="form-group">
+        <label for="tur">Hayvan Türü</label>
+        <select id="tur" required>
+          <option value="">Seçiniz...</option>
+          <option value="İnek">İnek</option>
+          <option value="Koyun">Koyun</option>
+          <option value="Keçi">Keçi</option>
+          <option value="Tavuk">Tavuk</option>
+          <option value="Diğer">Diğer</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="kupeNo">Kimlik / Küpe Numarası</label>
+        <input type="text" id="kupeNo" placeholder="Örn: TR-44-0001" required />
+      </div>
+
+      <div class="form-group">
+        <label for="kayitTarihi">Kayıt Tarihi</label>
+        <input type="date" id="kayitTarihi" required />
+      </div>
+
+      <button type="submit">Kaydet</button>
+    </form>
+
+    <div id="mesaj" class="mesaj gizli"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
