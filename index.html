@@ -9,7 +9,7 @@
 <body>
   <header class="ust-baslik">
     <h1>Çiftlik Takip Sistemi</h1>
-    <p>Hayvan Kayıt, Yem Tüketimi ve Maliyet Yönetimi</p>
+    <p>Hayvan Kayıt, Yem Tüketimi, Maliyet ve Piyasa Yönetimi</p>
   </header>
 
   <!-- 5. Görev: Özet ve Gider Panosu -->
@@ -26,6 +26,19 @@
       <span class="ozet-etiket">Toplam Yem Maliyeti</span>
       <strong id="toplamYemMaliyeti" class="ozet-deger">0 TL</strong>
     </div>
+  </section>
+
+  <!-- 6. Görev: Canlı Et ve Yem Piyasa Ekranı -->
+  <section class="piyasa-paneli">
+    <div class="piyasa-baslik">
+      <div class="piyasa-sol">
+        <span class="canli-nokta"></span>
+        <h2>Canlı Et & Yem Piyasası</h2>
+        <span class="canli-rozet">CANLI</span>
+      </div>
+      <span id="sonGuncelleme" class="guncelleme-saat">Son Güncelleme: --:--:--</span>
+    </div>
+    <div id="piyasaKartlari" class="piyasa-izgara"></div>
   </section>
 
   <main class="panel-izgara">

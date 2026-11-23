@@ -15,6 +15,67 @@ function ozetGuncelle() {
   toplamYemMaliyetEl.textContent = `${toplamMaliyet.toLocaleString("tr-TR")} TL`;
 }
 
+// --- 6. GÖREV: CANLI ET VE YEM PİYASASI (SİMÜLASYON) ---
+const piyasaKartlariEl = document.getElementById("piyasaKartlari");
+const sonGuncellemeEl = document.getElementById("sonGuncelleme");
+
+const piyasaVerileri = [
+  { ad: "Dana Karkas (kg)", fiyat: 385.0, degisim: 0 },
+  { ad: "Kuzu Karkas (kg)", fiyat: 445.0, degisim: 0 },
+  { ad: "Besi Yemi (50 kg)", fiyat: 640.0, degisim: 0 },
+  { ad: "Yonca Balya (kg)", fiyat: 9.5, degisim: 0 },
+  { ad: "Saman (kg)", fiyat: 4.8, degisim: 0 }
+];
+
+function piyasaEkraniCiz() {
+  piyasaKartlariEl.innerHTML = "";
+
+  piyasaVerileri.forEach((urun) => {
+    let degisimMetin = "0.00%";
+    let degisimSinif = "degisim-notr";
+    let kutuEfekt = "";
+
+    if (urun.degisim > 0) {
+      degisimMetin = `▲ +${urun.degisim.toFixed(2)}%`;
+      degisimSinif = "degisim-arti";
+      kutuEfekt = "artis-efekt";
+    } else if (urun.degisim < 0) {
+      degisimMetin = `▼ ${urun.degisim.toFixed(2)}%`;
+      degisimSinif = "degisim-eksi";
+      kutuEfekt = "azalis-efekt";
+    }
+
+    const kutu = document.createElement("div");
+    kutu.className = `piyasa-kutu ${kutuEfekt}`;
+    kutu.innerHTML = `
+      <div class="piyasa-urun">${urun.ad}</div>
+      <div class="piyasa-fiyat-satir">
+        <span class="piyasa-fiyat">${urun.fiyat.toLocaleString("tr-TR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} TL</span>
+        <span class="piyasa-degisim ${degisimSinif}">${degisimMetin}</span>
+      </div>
+    `;
+    piyasaKartlariEl.appendChild(kutu);
+  });
+
+  const simdi = new Date();
+  sonGuncellemeEl.textContent = `Son Güncelleme: ${simdi.toLocaleTimeString("tr-TR")}`;
+}
+
+function piyasaFiyatlariniGuncelle() {
+  piyasaVerileri.forEach((urun) => {
+    // -1.2% ile +1.2% arasında anlık dalgalanma simülasyonu
+    const rastgeleYuzde = (Math.random() * 2.4 - 1.2);
+    const yeniFiyat = Math.max(1, urun.fiyat * (1 + rastgeleYuzde / 100));
+    urun.degisim = rastgeleYuzde;
+    urun.fiyat = Number(yeniFiyat.toFixed(2));
+  });
+  piyasaEkraniCiz();
+}
+
+// İlk çizim ve her 3 saniyede bir canlı güncelleme
+piyasaEkraniCiz();
+setInterval(piyasaFiyatlariniGuncelle, 3000);
+
 // --- 1., 2. ve 4. GÖREV: HAYVAN KAYIT, LİSTELEME VE SİLME ---
 const hayvanForm = document.getElementById("hayvanForm");
 const mesajKutusu = document.getElementById("mesaj");

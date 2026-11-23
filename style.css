@@ -34,7 +34,7 @@ body {
 /* Özet Kartları (5. Görev) */
 .ozet-izgara {
   max-width: 1120px;
-  margin: 0 auto 24px;
+  margin: 0 auto 20px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 16px;
@@ -72,6 +72,129 @@ body {
   color: #b45309;
 }
 
+/* Canlı Piyasa Paneli (6. Görev) */
+.piyasa-paneli {
+  max-width: 1120px;
+  margin: 0 auto 24px;
+  background: #111827;
+  color: #f9fafb;
+  padding: 16px 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(17, 24, 39, 0.18);
+}
+
+.piyasa-baslik {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #374151;
+}
+
+.piyasa-sol {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.piyasa-baslik h2 {
+  margin: 0;
+  color: #f9fafb;
+  font-size: 16px;
+}
+
+.canli-nokta {
+  width: 10px;
+  height: 10px;
+  background-color: #22c55e;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #22c55e;
+  animation: nabiz 1.4s infinite;
+}
+
+@keyframes nabiz {
+  0% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.25); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.canli-rozet {
+  background-color: #14532d;
+  color: #4ade80;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 999px;
+  letter-spacing: 0.6px;
+}
+
+.guncelleme-saat {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.piyasa-izgara {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
+  gap: 12px;
+}
+
+.piyasa-kutu {
+  background: #1f2937;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid #374151;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+.piyasa-kutu.artis-efekt {
+  border-color: #22c55e;
+}
+
+.piyasa-kutu.azalis-efekt {
+  border-color: #ef4444;
+}
+
+.piyasa-urun {
+  font-size: 12px;
+  color: #d1d5db;
+  margin-bottom: 6px;
+}
+
+.piyasa-fiyat-satir {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.piyasa-fiyat {
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.piyasa-degisim {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.degisim-arti {
+  color: #4ade80;
+}
+
+.degisim-eksi {
+  color: #f87171;
+}
+
+.degisim-notr {
+  color: #9ca3af;
+}
+
+/* Ana Paneller */
 .panel-izgara {
   max-width: 1120px;
   margin: 0 auto;
