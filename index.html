@@ -7,54 +7,120 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
+  <header class="ust-baslik">
     <h1>Çiftlik Takip Sistemi</h1>
-    <p class="subtitle">Hayvan Kayıt ve Takip Ekranı</p>
+    <p>Hayvan Kayıt, Yem Tüketimi ve Operasyon Yönetimi</p>
+  </header>
 
-    <form id="hayvanForm">
-      <div class="form-group">
-        <label for="tur">Hayvan Türü</label>
-        <select id="tur" required>
-          <option value="">Seçiniz...</option>
-          <option value="İnek">İnek</option>
-          <option value="Koyun">Koyun</option>
-          <option value="Keçi">Keçi</option>
-          <option value="Tavuk">Tavuk</option>
-          <option value="Diğer">Diğer</option>
-        </select>
+  <main class="panel-izgara">
+    <!-- Hayvan Yönetimi Paneli -->
+    <section class="kart">
+      <h2>Yeni Hayvan Kaydı</h2>
+      <form id="hayvanForm">
+        <div class="form-group">
+          <label for="tur">Hayvan Türü</label>
+          <select id="tur" required>
+            <option value="">Seçiniz...</option>
+            <option value="İnek">İnek</option>
+            <option value="Koyun">Koyun</option>
+            <option value="Keçi">Keçi</option>
+            <option value="Tavuk">Tavuk</option>
+            <option value="Diğer">Diğer</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="kupeNo">Kimlik / Küpe Numarası</label>
+          <input type="text" id="kupeNo" placeholder="Örn: TR-44-0001" required />
+        </div>
+
+        <div class="form-group">
+          <label for="kayitTarihi">Kayıt Tarihi</label>
+          <input type="date" id="kayitTarihi" required />
+        </div>
+
+        <button type="submit">Hayvanı Kaydet</button>
+      </form>
+
+      <div id="mesaj" class="mesaj gizli"></div>
+
+      <hr class="ayirici" />
+
+      <h3>Kayıtlı Hayvanlar</h3>
+      <p id="bosListeMesaji" class="bos-mesaj">Henüz kayıtlı hayvan bulunmamaktadır.</p>
+
+      <div class="tablo-kapsayici">
+        <table id="hayvanTablosu" class="gizli">
+          <thead>
+            <tr>
+              <th>Tür</th>
+              <th>Küpe No</th>
+              <th>Kayıt Tarihi</th>
+            </tr>
+          </thead>
+          <tbody id="hayvanListesi"></tbody>
+        </table>
       </div>
+    </section>
 
-      <div class="form-group">
-        <label for="kupeNo">Kimlik / Küpe Numarası</label>
-        <input type="text" id="kupeNo" placeholder="Örn: TR-44-0001" required />
+    <!-- Yem Tüketimi Paneli (3. Görev) -->
+    <section class="kart">
+      <h2>Günlük Yem Tüketimi Girişi</h2>
+      <form id="yemForm">
+        <div class="form-group">
+          <label for="yemTarih">Tarih</label>
+          <input type="date" id="yemTarih" required />
+        </div>
+
+        <div class="form-group">
+          <label for="yemTuru">Yem Türü</label>
+          <select id="yemTuru" required>
+            <option value="">Seçiniz...</option>
+            <option value="Saman">Saman</option>
+            <option value="Yonca">Yonca</option>
+            <option value="Kesif Yem">Kesif Yem</option>
+            <option value="Arpa / Tahıl">Arpa / Tahıl</option>
+            <option value="Karma Yem">Karma Yem</option>
+          </select>
+        </div>
+
+        <div class="form-satir">
+          <div class="form-group">
+            <label for="yemMiktar">Miktar (kg)</label>
+            <input type="number" id="yemMiktar" min="1" step="0.5" placeholder="Örn: 150" required />
+          </div>
+
+          <div class="form-group">
+            <label for="yemTutar">Maliyet (TL)</label>
+            <input type="number" id="yemTutar" min="1" step="0.01" placeholder="Örn: 1250" required />
+          </div>
+        </div>
+
+        <button type="submit" class="btn-ikincil">Yem Girişini Kaydet</button>
+      </form>
+
+      <div id="yemMesaj" class="mesaj gizli"></div>
+
+      <hr class="ayirici" />
+
+      <h3>Yem Tüketim Geçmişi</h3>
+      <p id="bosYemMesaji" class="bos-mesaj">Henüz yem tüketimi kaydı bulunmamaktadır.</p>
+
+      <div class="tablo-kapsayici">
+        <table id="yemTablosu" class="gizli">
+          <thead>
+            <tr>
+              <th>Tarih</th>
+              <th>Yem Türü</th>
+              <th>Miktar</th>
+              <th>Maliyet</th>
+            </tr>
+          </thead>
+          <tbody id="yemListesi"></tbody>
+        </table>
       </div>
-
-      <div class="form-group">
-        <label for="kayitTarihi">Kayıt Tarihi</label>
-        <input type="date" id="kayitTarihi" required />
-      </div>
-
-      <button type="submit">Kaydet</button>
-    </form>
-
-    <div id="mesaj" class="mesaj gizli"></div>
-
-    <hr class="ayirici" />
-
-    <h2>Kayıtlı Hayvanlar</h2>
-    <p id="bosListeMesaji" class="bos-mesaj">Henüz kayıtlı hayvan bulunmamaktadır.</p>
-
-    <table id="hayvanTablosu" class="gizli">
-      <thead>
-        <tr>
-          <th>Tür</th>
-          <th>Kimlik / Küpe No</th>
-          <th>Kayıt Tarihi</th>
-        </tr>
-      </thead>
-      <tbody id="hayvanListesi"></tbody>
-    </table>
-  </div>
+    </section>
+  </main>
 
   <script src="app.js"></script>
 </body>
