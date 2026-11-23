@@ -116,6 +116,18 @@ button:hover {
   background-color: #b45309;
 }
 
+.btn-sil {
+  width: auto;
+  padding: 6px 10px;
+  background-color: #dc2626;
+  font-size: 12px;
+  border-radius: 6px;
+}
+
+.btn-sil:hover {
+  background-color: #b91c1c;
+}
+
 .mesaj {
   margin-top: 14px;
   padding: 12px;
@@ -124,6 +136,11 @@ button:hover {
   color: #1b5e20;
   font-size: 14px;
   font-weight: 500;
+}
+
+.mesaj-uyari {
+  background-color: #fef2f2;
+  color: #991b1b;
 }
 
 .ayirici {

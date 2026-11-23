@@ -1,9 +1,29 @@
-// --- 1. ve 2. GÖREV: HAYVAN KAYIT VE LİSTELEME ---
+// --- 1., 2. ve 4. GÖREV: HAYVAN KAYIT, LİSTELEME VE SİLME ---
 const hayvanForm = document.getElementById("hayvanForm");
 const mesajKutusu = document.getElementById("mesaj");
 const hayvanListesi = document.getElementById("hayvanListesi");
 const hayvanTablosu = document.getElementById("hayvanTablosu");
 const bosListeMesaji = document.getElementById("bosListeMesaji");
+
+function mesajGoster(metin, uyariMi = false) {
+  mesajKutusu.textContent = metin;
+  mesajKutusu.classList.remove("gizli", "mesaj-uyari");
+  if (uyariMi) {
+    mesajKutusu.classList.add("mesaj-uyari");
+  }
+}
+
+function hayvanSil(id, kupeNo) {
+  const onay = confirm(`"${kupeNo}" küpe numaralı hayvan kaydını silmek istediğinize emin misiniz?`);
+  if (!onay) return;
+
+  const mevcutHayvanlar = JSON.parse(localStorage.getItem("hayvanlar")) || [];
+  const guncelListe = mevcutHayvanlar.filter((hayvan) => hayvan.id !== id);
+  localStorage.setItem("hayvanlar", JSON.stringify(guncelListe));
+
+  mesajGoster(`"${kupeNo}" küpe numaralı hayvan kaydı listeden silindi.`, true);
+  hayvanlariListele();
+}
 
 function hayvanlariListele() {
   const hayvanlar = JSON.parse(localStorage.getItem("hayvanlar")) || [];
@@ -30,6 +50,11 @@ function hayvanlariListele() {
       <td>${hayvan.tur}</td>
       <td>${hayvan.kupeNo}</td>
       <td>${hayvan.kayitTarihi}</td>
+      <td>
+        <button type="button" class="btn-sil" onclick="hayvanSil(${hayvan.id}, '${hayvan.kupeNo.replace(/'/g, "\\'")}')">
+          Sil / Çıkar
+        </button>
+      </td>
     `;
     hayvanListesi.appendChild(satir);
   });
@@ -53,9 +78,7 @@ hayvanForm.addEventListener("submit", function (e) {
   mevcutHayvanlar.push(yeniHayvan);
   localStorage.setItem("hayvanlar", JSON.stringify(mevcutHayvanlar));
 
-  mesajKutusu.textContent = `"${kupeNo}" numaralı ${tur} başarıyla kaydedildi!`;
-  mesajKutusu.classList.remove("gizli");
-
+  mesajGoster(`"${kupeNo}" numaralı ${tur} başarıyla kaydedildi!`);
   hayvanForm.reset();
   hayvanlariListele();
 });
