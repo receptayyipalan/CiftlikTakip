@@ -1,12 +1,15 @@
 # Çiftlik Takip Sistemi
 
-Projenin Çözdüğü Problem:
-Farklı türdeki hayvanların (büyükbaş, küçükbaş, kümes vb.) bir arada bulunduğu çiftliklerde hayvan sayılarını, türlerini ve günlük giderleri kağıt üzerinde takip etmek karmaşık ve hataya açıktır. Bu proje, tüm çiftlik kayıtlarını tek bir merkezde toplayarak yönetimi dijitalleştirmeyi ve veri karmaşasını önlemeyi amaçlamaktadır.
+## Projenin Çözdüğü Problem
+Farklı türdeki hayvanların (büyükbaş, küçükbaş, kümes vb.) bir arada bulunduğu çiftliklerde hayvan kayıtlarını, günlük yem tüketimlerini ve maliyetleri manuel (kağıt/defter) olarak takip etmek zaman kaybına ve hatalı hesaplamalara yol açmaktadır. Bu proje, tüm çiftlik operasyonlarını tek bir dijital ekranda toplayarak veri karmaşasını önlemeyi ve maliyet takibini kolaylaştırmayı amaçlamaktadır.
 
-Kimin İçin Geliştirildi?
-Karma veya tek tip hayvan yetiştiren çiftlik sahipleri, tarımsal işletmeler ve çiftlik yöneticileri için geliştirilmiştir.
+## Kimin İçin Geliştirildi?
+Karma veya tek tip hayvancılık yapan çiftlik sahipleri, besiciler ve tarımsal işletme yöneticileri için geliştirilmiştir.
 
----
-*Not: Proje panosu bağlantısı, çalıştırma adımları ve test yönergeleri geliştirme aşaması tamamlandığında buraya eklenecektir.*
+## İş Takip Panosu (Trello)
+Proje planlaması, kabul kriterleri ve görevlere ait commit bağlantıları aşağıdaki panoda yer almaktadır:
+- **Trello Panosu:** : https://trello.com/b/VAtGtVfE
 
-İş Takip Panosu (Trello): https://trello.com/b/VAtGtVfE
+## Projeyi Çalıştırma Adımları
+Proje saf HTML, CSS ve JavaScript ile geliştirildiği için ek bir kurulum veya sunucu gerektirmez:
+!! Bu GitHub deposunu bilgisayarınıza indirin (**Code → Download ZIP**) veya klonlayın.
