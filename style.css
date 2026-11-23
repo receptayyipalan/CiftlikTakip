@@ -11,7 +11,7 @@ body {
 }
 
 .container {
-  max-width: 520px;
+  max-width: 680px;
   margin: 0 auto;
   background: #ffffff;
   padding: 24px;
@@ -23,6 +23,12 @@ h1 {
   margin: 0 0 4px;
   color: #1b5e20;
   font-size: 24px;
+}
+
+h2 {
+  margin: 0 0 12px;
+  color: #1b5e20;
+  font-size: 19px;
 }
 
 .subtitle {
@@ -73,6 +79,40 @@ button:hover {
   background-color: #e8f5e9;
   color: #1b5e20;
   font-size: 14px;
+}
+
+.ayirici {
+  border: none;
+  border-top: 1px solid #e5e7eb;
+  margin: 24px 0;
+}
+
+.bos-mesaj {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 8px;
+}
+
+th, td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 14px;
+}
+
+th {
+  background-color: #f0fdf4;
+  color: #1b5e20;
+  font-weight: bold;
+}
+
+tbody tr:hover {
+  background-color: #f9fafb;
 }
 
 .gizli {

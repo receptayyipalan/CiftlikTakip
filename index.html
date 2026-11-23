@@ -9,7 +9,7 @@
 <body>
   <div class="container">
     <h1>Çiftlik Takip Sistemi</h1>
-    <p class="subtitle">Yeni Hayvan Kayıt Ekranı</p>
+    <p class="subtitle">Hayvan Kayıt ve Takip Ekranı</p>
 
     <form id="hayvanForm">
       <div class="form-group">
@@ -38,6 +38,22 @@
     </form>
 
     <div id="mesaj" class="mesaj gizli"></div>
+
+    <hr class="ayirici" />
+
+    <h2>Kayıtlı Hayvanlar</h2>
+    <p id="bosListeMesaji" class="bos-mesaj">Henüz kayıtlı hayvan bulunmamaktadır.</p>
+
+    <table id="hayvanTablosu" class="gizli">
+      <thead>
+        <tr>
+          <th>Tür</th>
+          <th>Kimlik / Küpe No</th>
+          <th>Kayıt Tarihi</th>
+        </tr>
+      </thead>
+      <tbody id="hayvanListesi"></tbody>
+    </table>
   </div>
 
   <script src="app.js"></script>
